@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador|Texto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fondo">
+    <header>
+        <h1 class="fade-in">Encriptador de Texto</h1>
+        <p class="mensaje container">Solo letras minúsculas, no deben ser utilizadas letras con acentos</br> ni caracteres especiales
+
+    </header>
+
+    <section class="area-texto container">
+        <textarea id="textarea1" oninput="mostarTexto();guardarTexto();"
+            placeholder="Digita aqui el texto que deseas encriptar" rows="20" cols="70"></textarea>
+    
+        <div class="area1 container">
+            <li>
+                <img id="Img1" src="Img/silencio3.png">
+                <p id="mensaje">Aun no hay texto encriptado </p>
+                <p id="texto2"></p>
+            </li>
+    
+        </div>
+    
+    </section>
+    <section class="botones container">
+            <button id="button1">Encriptar</button>
+            <button id="button2">Desencriptar</button>
+            <button id="button3">Copiar</button>
+    </section>
+    <p class="Copyrigth container">&copyCopyrigth-Oscar Camacho</p>
+
+    <script>
+
+        function mostarTexto() {
+            var img1 = document.getElementById('Img1');
+            var mensaje = document.getElementById('mensaje');
+            var textareaValue = document.getElementById("textarea1").value;
+            img1.style.display = 'none';
+            mensaje.style.display = "none"
+            var textareaValue = document.getElementById("textarea1").value;
+            document.getElementById("texto2").textContent = textareaValue;
+
+
+        }
+
+        function encriptar(evento) {
+            var texto = textarea1.value;
+            var textoEncriptado = texto.replace(/[aeiou]/g, remplazarLetra);
+            textarea1.value = textoEncriptado;
+            mostarTexto();
+
+        }
+
+        function desencriptar(evento) {
+            var textoEncriptado = textarea1.value;
+            var texto = textoEncriptado.replace(/ai|enter|imes|ober|ufat/g, remplazarLetraEncriptada);
+            textarea1.value = texto;
+            mostarTexto();
+        }
+        function copy() {
+            var copyText = document.getElementById("textarea1");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Texto copiado al portapaples")
+        }
+
+        function remplazarLetra(letraEncontrada) {
+            if (letraEncontrada == "a") {
+                return "ai";
+
+            } else if (letraEncontrada == "e") {
+                return "enter";
+
+            } else if (letraEncontrada == "i") {
+                return "imes";
+
+
+            } else if (letraEncontrada == "o") {
+                return "ober";
+
+            } else if (letraEncontrada == "u") {
+                return "ufat";
+
+            }
+        }
+        function remplazarLetraEncriptada(letraEncontrada) {
+            if (letraEncontrada == "ai") {
+                return "a";
+
+            } else if (letraEncontrada == "enter") {
+                return "e";
+
+            } else if (letraEncontrada == "imes") {
+                return "i";
+
+
+            } else if (letraEncontrada == "ober") {
+                return "o";
+
+            } else if (letraEncontrada == "ufat") {
+                return "u";
+
+            }
+        }
+        function guardarTexto() {
+            var texto = document.getElementById("textarea1").value;
+            if (texto !== '') {
+                localStorage.setItem("textoGuardado", texto);
+            } else {
+                localStorage.removeItem("textoGuardado");
+            }
+        }
+
+        window.onload = function () {
+            var textoGuardado = localStorage.getItem("textoGuardado");
+            var textarea = document.getElementById("textarea1");
+            if (textoGuardado) {
+                textarea.value = textoGuardado;
+            } else {
+                textarea.value = ''; 
+            }
+        };
+        window.onbeforeunload = function () {
+            localStorage.removeItem("textoGuardado");
+        };
+
+        var button = document.querySelector("#button1");
+        button.onclick = encriptar;
+
+        var button = document.querySelector("#button2");
+        button.onclick = desencriptar;
+        var button = document.querySelector("#button3");
+        button.onclick = copy;
+    </script>
+
+</body>
+
+</html>

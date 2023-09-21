@@ -1,0 +1,172 @@
+.fondo{
+    background: linear-gradient(to bottom, #000000, #888888);
+    
+}
+.container{
+display: flex;
+flex-direction: column;
+padding-left: 2rem;
+padding-right: 1rem;
+}
+.fade-in{
+    text-align: center;
+    font-style:normal;
+    font-size: 50px;
+    color: white;
+
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+  }
+
+.area-texto{
+    display: block;
+    font-size: 30px;
+    margin: 0 0 20px;
+    padding: 20px;
+
+}
+
+#textarea1{
+    width: 60%;
+    height: 400px;
+    border-radius: 10px;
+    border: 5px solid white;
+    background-color: cadetblue;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+    color: white;
+
+}
+
+
+.area1{
+    background-color: cadetblue;
+    width: 30%;
+    height: 400px;
+    float: right;
+    margin: auto 20px;
+    border: 5px solid white;
+    border-radius: 10px;
+    overflow: auto;
+    word-wrap: break-word;
+    
+
+}
+.area1 li{
+    display: inline-block;
+}
+.area1 p{
+    text-align: center;
+    color:white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    
+}
+#Img1{
+    width: 100%;
+    margin: 0 2.5%;
+    margin-top: 10px;
+}
+.mensaje{
+    color: white;
+    font-weight: 600
+}
+
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 10rem;
+    padding-bottom: 2rem;
+    
+}
+.botones button{
+    width: 10%;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color:white;
+    background : rgb(14, 2, 82);
+    border: 3px solid white;
+    border-radius: 5px;
+    transition: 0.2s all;
+    cursor:pointer;
+    margin-right: 1rem;
+
+}
+
+button:hover {
+    background: blue;
+    transform: scale(1.1);
+}
+.Copyrigth{
+    text-align: center;
+    color: white;
+    font-weight: 600;
+
+}
+@media  screen and (max-width:768px) {
+
+
+    body{
+        background-image: none;
+        background: linear-gradient(to bottom, #000000, #666666);
+      
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #textarea1{
+        min-width: 300px;
+        margin-bottom: 1rem;
+    }
+    .area1{
+        min-width: 200px;
+        max-height: 400px;
+    }
+    .mensaje{
+        text-align: center;
+        color: white;
+        font-weight: 600
+    }
+    .botones{
+        display: block;
+        flex-direction: column;
+        max-width: 250px;
+        margin:0%;
+        align-items: center;
+
+    }
+    .botones button{
+     width: 50%; 
+     margin-top: 5px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-left:6rem;
+
+    }
+
+    .Copyrigth{
+        color: white;
+        font-weight: 600;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
